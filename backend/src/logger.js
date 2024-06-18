@@ -2,7 +2,7 @@
 const winston = require('winston');
 const path = require('path');
 
-const logDirectory = path.join(__dirname, 'logs');
+const logDirectory = path.join(__dirname, '../logs');
 
 // ログディレクトリが存在しない場合は作成
 if (!require('fs').existsSync(logDirectory)) {

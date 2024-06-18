@@ -1,7 +1,12 @@
+const dotenv = require('dotenv');
 const express = require('express');
 const morgan = require('morgan');
 const logger = require('./logger'); // ロガーをインポート
-const db = require('./config/db');
+const path = require('path');
+
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config({ path: path.join(__dirname, `../.env${process.env.NODE_ENV ? '.' + process.env.NODE_ENV : ''}`) });
+}
 
 const app = express();
 const port = 5000;
@@ -30,6 +35,8 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something broke!');
 });
 
-app.listen(port, () => {
-  logger.info(`Server is running on port ${port}`);
+const server = app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
+
+module.exports = { app, server };  // serverもエクスポート
