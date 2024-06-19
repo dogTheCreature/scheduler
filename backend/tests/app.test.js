@@ -43,3 +43,10 @@ describe('GET /api/users', () => {
         expect(response.status).toBe(200);
     });
 });
+
+describe('GET /api/tasks', () => {
+    it('should respond with a 200 status code', async () => {
+        const response = await request(app).get('/api/tasks');
+        expect(response.status).toBe(200);
+    });
+});

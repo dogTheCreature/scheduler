@@ -28,6 +28,8 @@ app.get('/', (req, res) => {
 // Add your routes here
 const userRoutes = require('./routes/users');
 app.use('/api/users', userRoutes);
+const taskRoutes = require('./routes/tasks');
+app.use('/api/tasks', taskRoutes);
 
 // エラーハンドリングミドルウェア
 app.use((err, req, res, next) => {
