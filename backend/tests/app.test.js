@@ -48,5 +48,6 @@ describe('GET /api/tasks', () => {
     it('should respond with a 200 status code', async () => {
         const response = await request(app).get('/api/tasks');
         expect(response.status).toBe(200);
+        console.log(response.body);
     });
 });

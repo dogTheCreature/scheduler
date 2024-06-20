@@ -5,7 +5,7 @@ PROJECT_ROOT=$(dirname $(dirname $(realpath $0)))
 
 # .env.testファイルの読み込み
 set -a
-source $PROJECT_ROOT/.env.test
+source ./.env.test.local
 set +a
 
 # ワイルドカードを展開してファイルのリストを取得
